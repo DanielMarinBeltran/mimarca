@@ -1,16 +1,44 @@
-.card-plan_container {
+.cards-select_container {
   width: 100%;
   margin-top: 1rem;
 
+  .cards-select--header {
+    display: flex;
+    justify-content: space-around;
+
+    .cards-select--tab {
+      padding: 0.5rem;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+
+    .Empresario {
+      background: #2D3747;
+    }
+
+    .Starter {
+      background: #DB946C;
+    }
+
+    .Visionario {
+      background: #8AAECC;
+    }
+  }
+
   .card-plan--header {
     padding: 1rem;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: -1px;
+
+
 
     .card-plan--header--img {
       width: 3rem;

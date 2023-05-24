@@ -5,6 +5,7 @@ import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import CardsReq from "../CardsReq";
 import { planes } from "../../assets/data/planes";
 import CardPlan from "../CardPlan";
+import CardsSelect from "../CardsSelect";
 
 function Form() {
   const [name, setName] = useState("");
@@ -19,6 +20,7 @@ function Form() {
   const [seventhStepSubmitted, setSeventhStepSubmitted] = useState(false);
   const [eightStepSubmitted, setEightStepSubmitted] = useState(false);
   const [inColombiaSubmitted, setInColombiaSubmitted] = useState(false);
+  const [selectPlans, setSelectPlans] = useState(false);
   const [dataPlanSelected, setDataPlanSelected] = useState([]);
   const [placeWhereSubmitted, setPlaceWhereSubmitted] = useState("");
   const [alignment, setAlignment] = useState("");
@@ -643,8 +645,73 @@ function Form() {
             <p className="form--titles">
               Con base en tus respuestas, el plan perfecto para ti es:
             </p>
-            <p>{planSelected}</p>
-            <CardPlan dataPlanSelected={dataPlanSelected} />
+            {selectPlans ? (
+              <>
+                <CardsSelect
+                  planSelected={planSelected}
+                  setPlanSelected={setPlanSelected}
+                />
+                <div
+                  className="form--input--button_container"
+                  style={{ gap: "1rem", justifyContent: "center" }}
+                >
+                  <ButtonStyled
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSelectPlans(false);
+                    }}
+                    type="submit"
+                    style={{
+                      marginTop: "1rem",
+                    }}
+                  >
+                    Volver
+                  </ButtonStyled>
+                </div>
+              </>
+            ) : (
+              <>
+                <CardPlan
+                  dataPlanSelected={dataPlanSelected}
+                  setSelectPlans={setSelectPlans}
+                />
+                <p className="form--text" style={{ textAlign: "center" }}>
+                  No te preocupes, si después de las preguntas quieres reevaluar
+                  tu opción, escoge el plan que mejor se ajusta
+                </p>
+                <div
+                  className="form--input--button_container"
+                  style={{ gap: "1rem", justifyContent: "center" }}
+                >
+                  <ButtonStyled
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setEightStepSubmitted(false);
+                    }}
+                    type="submit"
+                    style={{
+                      marginTop: "1rem",
+                      background: "transparent",
+                      border: "1px solid",
+                    }}
+                  >
+                    Volver
+                  </ButtonStyled>
+                  <ButtonStyled
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSelectPlans(true);
+                    }}
+                    type="submit"
+                    style={{
+                      marginTop: "1rem",
+                    }}
+                  >
+                    Ver planes
+                  </ButtonStyled>
+                </div>
+              </>
+            )}
           </div>
         )}
       </form>
