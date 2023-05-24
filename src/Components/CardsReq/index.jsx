@@ -148,7 +148,7 @@ function CardsReq({ setSelectedCardReq, selectedCardReq }) {
     } else {
       setCards(cardInfo);
     }
-  }, [selectedCardReq, cards, cardInfo]);
+  }, [selectedCardReq]);
 
   return (
     <div className="cards-req_container">

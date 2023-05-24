@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./form.scss";
 import { ButtonStyled } from "../../styledComponents/ButtonStyled";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import CardsReq from "../CardsReq";
+import { planes } from "../../assets/data/planes";
+import CardPlan from "../CardPlan";
 
 function Form() {
   const [name, setName] = useState("");
@@ -17,6 +19,7 @@ function Form() {
   const [seventhStepSubmitted, setSeventhStepSubmitted] = useState(false);
   const [eightStepSubmitted, setEightStepSubmitted] = useState(false);
   const [inColombiaSubmitted, setInColombiaSubmitted] = useState(false);
+  const [dataPlanSelected, setDataPlanSelected] = useState([]);
   const [placeWhereSubmitted, setPlaceWhereSubmitted] = useState("");
   const [alignment, setAlignment] = useState("");
   const [alignmentNameCompany, setAlignmentNameCompany] = useState("");
@@ -26,6 +29,7 @@ function Form() {
   const [amountMoney, setAmountMoney] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [contactNumber, setContactNumber] = useState("");
+  const [planSelected, setPlanSelected] = useState("");
 
   const jsonSend = {
     name: name,
@@ -33,6 +37,22 @@ function Form() {
     alignment: alignment,
     alignmentNameCompany: alignmentNameCompany,
   };
+
+  useEffect(() => {
+    if (amountMoney === "$400.000 - $750.000") {
+      setPlanSelected("Starter");
+    } else if (amountMoney === "$750.000 - 1.500.000") {
+      setPlanSelected("Visionario");
+    } else if (amountMoney === "$1.500.000 - 3.000.000") {
+      setPlanSelected("Empresario");
+    }
+  }, [amountMoney]);
+
+  useEffect(() => {
+    setDataPlanSelected(planes.filter((plan) => plan.name === planSelected));
+  }, [planSelected]);
+
+  console.log(dataPlanSelected);
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
@@ -623,6 +643,8 @@ function Form() {
             <p className="form--titles">
               Con base en tus respuestas, el plan perfecto para ti es:
             </p>
+            <p>{planSelected}</p>
+            <CardPlan dataPlanSelected={dataPlanSelected} />
           </div>
         )}
       </form>
