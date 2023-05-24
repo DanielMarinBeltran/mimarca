@@ -1,0 +1,60 @@
+.cards-req_container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: 1rem;
+
+  .cards-req {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(138, 174, 204, 0.6);
+    border-radius: 8px;
+    cursor: pointer;
+
+    .cards-req--right_container {
+      border-left: 1px solid #ECF3F5;
+      height: 100%;
+      padding-left: 1rem;
+      margin-left: 1rem;
+      width: 100%;
+
+      .cards-req--title {
+        font-size: 1.2rem;
+      }
+
+      .cards-req--item {
+        .cards-req--item--icon {
+          margin-right: 0.5rem;
+        }
+
+        .cards-req--item_title {
+          display: flex;
+          align-items: center;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cards-req--right_container {
+      border-left: none !important;
+      border-top: 1px solid #ECF3F5;
+      margin-left: 0 !important;
+      margin-top: 1rem;
+      padding-left: 0 !important;
+      padding-top: 1rem;
+    }
+
+    .cards-req {
+      flex-wrap: wrap;
+    }
+
+    .cards-req--img {
+      width: 5rem;
+    }
+  }
+
+}
