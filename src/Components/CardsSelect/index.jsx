@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import { planes } from "../../assets/data/planes";
 import "./cardsSelect.scss";
 import { ButtonStyled } from "../../styledComponents/ButtonStyled";
 import CheckIcon from "@mui/icons-material/Check";
 
-function CardsSelect({ planSelected, setPlanSelected }) {
+function CardsSelect({ planSelected, setPlanSelected, sendData }) {
   return (
     <div className="cards-select_container">
       <div className="cards-select--header">
@@ -52,6 +51,7 @@ function CardsSelect({ planSelected, setPlanSelected }) {
                 border: "1px solid #ffffff",
                 color: "#ffffff",
               }}
+              onClick={sendData}
             >
               Adquirir
             </ButtonStyled>
@@ -89,6 +89,7 @@ function CardsSelect({ planSelected, setPlanSelected }) {
                 border: "1px solid #ffffff",
                 color: "#ffffff",
               }}
+              onClick={sendData}
             >
               Adquirir
             </ButtonStyled>
@@ -126,6 +127,7 @@ function CardsSelect({ planSelected, setPlanSelected }) {
                 border: "1px solid #ffffff",
                 color: "#ffffff",
               }}
+              onClick={sendData}
             >
               Adquirir
             </ButtonStyled>

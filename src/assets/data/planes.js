@@ -52,7 +52,7 @@ export const planes = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     name: 'Visionario',
     price: '$ 1.813.560,00',
     img:intermedio,
@@ -88,7 +88,7 @@ export const planes = [
     ],
   },
   {
-    id: 1,
+    id: 3,
     name: 'Empresario',
     price: '$ 2.682.260,00',
     img:avanzado,

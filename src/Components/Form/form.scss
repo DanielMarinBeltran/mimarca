@@ -79,15 +79,20 @@
       }
 
       .css-d9c359-MuiButtonBase-root-MuiToggleButton-root {
-        color: #71B0E5;
-        border: 1px solid #71B0E5;
-        font-size: 1rem;
-        border-radius: 4px;
-        min-width: 41px;
+
+        font-size: 1rem !important;
+        border-radius: 4px !important;
+        min-width: 41px !important;
+        color: white !important;
+        border-color: white !important;
+      }
+
+      .css-d9c359-MuiButtonBase-root-MuiToggleButton-root.Mui-selected:hover {
+        background-color: rgba($color: #69B1ED, $alpha: .6) !important;
       }
 
       .css-1gjgmky-MuiToggleButtonGroup-root {
-        gap: 2rem;
+        gap: 2rem !important;
       }
     }
   }

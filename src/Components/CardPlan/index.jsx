@@ -5,8 +5,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import { ButtonStyled } from "../../styledComponents/ButtonStyled";
 
 // eslint-disable-next-line react/prop-types
-function CardPlan({ dataPlanSelected }) {
-  console.log(dataPlanSelected.img);
+function CardPlan({ dataPlanSelected, sendData }) {
   return (
     <div className="card-plan_container">
       <div className={`card-plan--header ${dataPlanSelected[0].name}`}>
@@ -25,6 +24,7 @@ function CardPlan({ dataPlanSelected }) {
             border: "1px solid #ffffff",
             color: "#ffffff",
           }}
+          onClick={sendData}
         >
           Adquirir
         </ButtonStyled>
